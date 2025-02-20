@@ -1,0 +1,28 @@
+CREATE DATABASE db_inventory_nazrina_xi4
+
+
+CREATE TABLE barang
+(id_barang integer PRIMARY KEY,
+ nama_barang varchar (12),
+ id_jenis integer,
+ harga integer,
+ stok varchar  (12));
+
+INSERT INTO barang VALUES
+("01","kulkas","2017","5000000","20"),
+("02","kompor","2018","6000000","21"),
+("03","dispenser","2019","7000000","22");
+
+CREATE TABLE jenis_barang
+(id_jenis integer PRIMARY KEY,
+ nama_jenis varchar (12));
+ 
+INSERT INTO jenis_barang VALUES
+("2017","elektronik"),
+("2018","elektronik"),
+("2019","elektronik");
+
+ALTER TABLE barang ADD FOREIGN KEY (id_jenis) REFERENCES jenis_barang (id_jenis)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+
