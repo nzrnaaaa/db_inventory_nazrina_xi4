@@ -54,8 +54,10 @@
                         <td><?php echo $result['harga']?></td>
                         <td><?php echo $result['stok']?></td>
                         <td>
-                            <a href="" class= "btn btn-warning">Edit  |</a>
-                            <a href="" class= "btn btn-danger">Hapus</a>
+                            <a href="edit.php?id_barang=<?php echo $result['id_barang']?>" class= "btn btn-warning"><i class="fa-solid fa-fen-to-square"></i>Edit </a>
+                            <a href="hapus.php?id_barang=<?php echo $result['id_barang']?>"
+                          onclick="return confirm('kamu yakin mau hapus barang ?')"
+                          class="btn btn-danger"><i class="fa-solid fa-trash"></i>hapus </a>
                         </td>
                     </tr>
                     <?php

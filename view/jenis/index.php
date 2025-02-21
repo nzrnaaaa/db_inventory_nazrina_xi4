@@ -53,7 +53,7 @@
                         <td><?php echo $result['id_jenis'] ?></td>
                         <td><?php echo $result['nama_jenis']?></td>
                         <td>
-                        <a href="" class= "btn btn-warning">Edit  |</a>
+                        <a href="edit.php?id_jenis=<?php echo $result['id_jenis']?>" class= "btn btn-warning"><i class="fa-solid fa-fen-to-square" class= "btn btn-warning">Edit  |</a>
                         <a href="" class= "btn btn-danger">Hapus</a>
                         </td>
                     </tr>

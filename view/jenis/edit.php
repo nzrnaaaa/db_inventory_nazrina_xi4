@@ -33,32 +33,23 @@
   </div>
 </nav>
 <div class="container">
-    <h1 >Data Barang Baru</h1>
-    <form action="simpan.php" method="POST" >
+    <h1 >Tambah Jenis Baru</h1>
+    <?php
+    $id_jenis=$_GET['id_jenis'];
+    include '../../config/koneksi.php';
+    $query=mysqli_query($conn, "SELECT * FROM jenis_barang WHERE id_jenis='$id_jenis'");
+    $result=mysqli_fetch_array($query);
+    ?>
+    <form action="proses_edit.php?id_jenis=<?php echo $result['id_jenis']?>" method="POST" >
  <div class="mb-3">
-     <label for="exampleInputEmail" class="form-label">Id Barang</label>
-     <input type="number" class="form-control" name="id_barang" id="exampleInputEmail" aria-describedby="emailHelp">
+     <label for="exampleInputEmail" class="form-label">Nama Jenis2</label>
+     <input type="text" class="form-control" value="<?php echo $result['nama_jenis']?>" name="nama_jenis" id="exampleInput" aria-describedby="emailHelp">
+     <div id="emailHelp" class ="form-text"></div>
  </div>
  <div>
-     <label for="exampleInputEmail" class="form-label">Nama Barang</label>
-     <input type="text" class="form-control" name="nama_barang" id="exampleInputEmail" aria-describedby="emailHelp">
- </div>
-<div>
-     <label for="exampleInputEmail" class="form-label">Id Jenis</label>
-     <input type="number" class="form-control" name="id_jenis" id="exampleInputEmail" aria-describedby="emailHelp">
-</div>
-<div>
-     <label for="exampleInputEmail" class="form-label">Harga</label>
-     <input type="number" class="form-control" name="harga" id="exampleInputEmail" aria-describedby="emailHelp">
-</div>
-<div>
-     <label for="exampleInputEmail" class="form-label">Stok</label>
-     <input type="number" class="form-control" name="stok" id="exampleInputEmail" aria-describedby="emailHelp">
-</div>
 <button type="submit" class="btn btn-primary">Submit</button>
  
-</form>
-
-</div>
+     </form>
+     </div>
 </body>
 </html>

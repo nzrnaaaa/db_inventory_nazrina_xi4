@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,31 +35,33 @@
 </nav>
 <div class="container">
     <h1 >Data Barang Baru</h1>
-    <form action="simpan.php" method="POST" >
+    <?php
+    $id_barang=$_GET['id_barang'];
+    include '../../config/koneksi.php';
+    $query=mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id_barang'");
+    $result=mysqli_fetch_array($query);
+    ?>
+    <form action="proses_edit.php?id_barang=<?php echo $result['id_barang']?>" method="POST" >
  <div class="mb-3">
-     <label for="exampleInputEmail" class="form-label">Id Barang</label>
-     <input type="number" class="form-control" name="id_barang" id="exampleInputEmail" aria-describedby="emailHelp">
+    <label for="exampleInputPassword1" class="from-label">Nama Barang</label>
+    <input type="text" class="form-control" value="<?php echo $result['nama_barang']?>" name="nama_barang" id="exampleInputEmail" aria-describedby="emailHelp">
+ </div>
+ <div class="mb-3">
+    <label for="exampleInputPassword1" class="from-label">ID jenis</label>
+    <input type="number" class="form-control" value="<?php echo $result['id_jenis']?>" name="id_jenis" id="exampleInputEmail" aria-describedby="emailHelp">
+ </div>
+ <div class="mb-3">
+    <label for="exampleInputPassword1" class="from-label">harga</label>
+    <input type="number" class="form-control" value="<?php echo $result['harga']?>" name="harga" id="exampleInputEmail" aria-describedby="emailHelp">
+ </div>
+ <div class="mb-3">
+    <label for="exampleInputPassword1" class="from-label">stok</label>
+    <input type="text" class="form-control" value="<?php echo $result['stok']?>" name="stok" id="exampleInputEmail" aria-describedby="emailHelp">
  </div>
  <div>
-     <label for="exampleInputEmail" class="form-label">Nama Barang</label>
-     <input type="text" class="form-control" name="nama_barang" id="exampleInputEmail" aria-describedby="emailHelp">
- </div>
-<div>
-     <label for="exampleInputEmail" class="form-label">Id Jenis</label>
-     <input type="number" class="form-control" name="id_jenis" id="exampleInputEmail" aria-describedby="emailHelp">
-</div>
-<div>
-     <label for="exampleInputEmail" class="form-label">Harga</label>
-     <input type="number" class="form-control" name="harga" id="exampleInputEmail" aria-describedby="emailHelp">
-</div>
-<div>
-     <label for="exampleInputEmail" class="form-label">Stok</label>
-     <input type="number" class="form-control" name="stok" id="exampleInputEmail" aria-describedby="emailHelp">
-</div>
 <button type="submit" class="btn btn-primary">Submit</button>
  
-</form>
-
-</div>
+     </form>
+     </div>
 </body>
 </html>
